@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": {"model":""},
+    "facing=south": {"model":"tutorial_mod:block/firstblock", "y" : 180},
+    "facing=west": {"model":"", "y" : 270},
+    "facing=east": {"model":"", "y" : 90},
+    "facing=up": {"model":"", "x": -90},
+    "facing=down": {"model":"", "x":  90}
+  }
+}
