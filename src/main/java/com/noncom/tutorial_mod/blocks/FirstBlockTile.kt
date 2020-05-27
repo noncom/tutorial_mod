@@ -10,6 +10,7 @@ import net.minecraft.inventory.container.INamedContainerProvider
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.nbt.CompoundNBT
+import net.minecraft.state.properties.BlockStateProperties
 import net.minecraft.tileentity.ITickableTileEntity
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.Direction
@@ -52,20 +53,34 @@ class FirstBlockTile : TileEntity(ModBlocks.FIRSTBLOCK_TILE), ITickableTileEntit
     var counter = 0
 
     override fun tick() {
-        //if(world?.isRemote == true) { }
+        if(world!!.isRemote) {
+            /** Only do everything of this on the server side */
+            return
+        }
+
+        /** try to spend a diamond and generate power */
         if (counter > 0) {
             counter--
             if (counter <= 0) {
                 energy.addEnergy(Config.FIRSTBLOCK_POWER_GENERATION.get())
             }
             markDirty()
-        } else {
+        }
+
+        /** try to extract a new diamond */
+        if (counter <= 0) {
             val stack = handler.getStackInSlot(0)
             if (stack.item == Items.DIAMOND) {
                 handler.extractItem(0, 1, false)
                 counter = Config.FIRSTBLOCK_TICKS.get()
                 markDirty() /** not needed actually because `handler.extractItem()` does that already by calling our `handler.onItemChanged()` */
             }
+        }
+
+        val blockState =  world!!.getBlockState(pos)
+        if(blockState.get(BlockStateProperties.POWERED) != counter > 0) {
+            /** the `flag=3` in the call means that it is going to be synchronized with the client */
+            world!!.setBlockState(pos, blockState.with(BlockStateProperties.POWERED, counter > 0), 3)
         }
 
         sendPowerOut()

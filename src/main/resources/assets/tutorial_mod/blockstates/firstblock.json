@@ -1,10 +1,17 @@
 {
   "variants": {
-    "facing=north": {"model":"tutorial_mod:block/firstblock"},
-    "facing=south": {"model":"tutorial_mod:block/firstblock", "y" : 180},
-    "facing=west": {"model":"tutorial_mod:block/firstblock", "y" : 270},
-    "facing=east": {"model":"tutorial_mod:block/firstblock", "y" : 90},
-    "facing=up": {"model":"tutorial_mod:block/firstblock", "x": -90},
-    "facing=down": {"model":"tutorial_mod:block/firstblock", "x":  90}
+    "facing=north,powered=false": {"model":"tutorial_mod:block/firstblock"},
+    "facing=south,powered=false": {"model":"tutorial_mod:block/firstblock", "y" : 180},
+    "facing=west,powered=false": {"model":"tutorial_mod:block/firstblock", "y" : 270},
+    "facing=east,powered=false": {"model":"tutorial_mod:block/firstblock", "y" : 90},
+    "facing=up,powered=false": {"model":"tutorial_mod:block/firstblock", "x": -90},
+    "facing=down,powered=false": {"model":"tutorial_mod:block/firstblock", "x":  90},
+
+    "facing=north,powered=true": {"model":"tutorial_mod:block/firstblock_powered"},
+    "facing=south,powered=true": {"model":"tutorial_mod:block/firstblock_powered", "y" : 180},
+    "facing=west,powered=true": {"model":"tutorial_mod:block/firstblock_powered", "y" : 270},
+    "facing=east,powered=true": {"model":"tutorial_mod:block/firstblock_powered", "y" : 90},
+    "facing=up,powered=true": {"model":"tutorial_mod:block/firstblock_powered", "x": -90},
+    "facing=down,powered=true": {"model":"tutorial_mod:block/firstblock_powered", "x":  90}
   }
 }

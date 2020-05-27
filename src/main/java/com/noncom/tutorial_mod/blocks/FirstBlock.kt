@@ -25,7 +25,7 @@ class FirstBlock : Block(Properties
         .create(Material.IRON)
         .sound(SoundType.METAL)
         .hardnessAndResistance(2.0f)
-//        .lightValue(24)
+        .lightValue(14)
 ) {
 
     init {
@@ -33,6 +33,14 @@ class FirstBlock : Block(Properties
     }
 
     override fun hasTileEntity(state: BlockState) = true
+
+    override fun getLightValue(state: BlockState): Int {
+        if(state.get(BlockStateProperties.POWERED)) {
+            return super.getLightValue(state)
+        } else {
+            return 0
+        }
+    }
 
     override fun createTileEntity(state: BlockState?, world: IBlockReader?): TileEntity? {
         return FirstBlockTile()
@@ -49,7 +57,7 @@ class FirstBlock : Block(Properties
     }
 
     override fun fillStateContainer(builder: StateContainer.Builder<Block, BlockState>) {
-        builder.add(BlockStateProperties.FACING)
+        builder.add(BlockStateProperties.FACING, BlockStateProperties.POWERED)
     }
 
     override fun onBlockActivated(state: BlockState, worldIn: World, pos: BlockPos, player: PlayerEntity, handIn: Hand, hit: BlockRayTraceResult): ActionResultType {
