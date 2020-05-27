@@ -8,3 +8,10 @@
     "facing=down": {"model":"", "x":  90}
   }
 }
+
+
+{
+  "variants": {
+    "": {"model": "tutorial_mod:block/firstblock"}
+  }
+}

@@ -10,3 +10,10 @@
     "south": "tutorial_mod:block/firstblock"
   }
 }
+
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "tutorial_mod:block/firstblock"
+  }
+}

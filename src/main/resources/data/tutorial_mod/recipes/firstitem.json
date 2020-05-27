@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " dx",
+    " sd",
+    "s  "
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "x": {
+      "item": "tutorial_mod:firstblock"
+    }
+  },
+  "result": {
+    "item": "tutorial_mod:firstitem"
+  }
+}

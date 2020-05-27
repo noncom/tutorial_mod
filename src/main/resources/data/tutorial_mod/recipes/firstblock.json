@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sis",
+    "idi",
+    "sis"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "minecraft:stone"
+    },
+    "d": {
+      "tag": "forge:dyes/gray"
+    }
+  },
+  "result": {
+    "item": "tutorial_mod:firstblock"
+  }
+}
