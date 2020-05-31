@@ -1,6 +1,7 @@
 buildscript {
     //ext.kotlin_version = '1.3.72'
     ext.kotlin_version = '1.4-M1'
+    ext.mod_name = "tutorial_mod"
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
@@ -80,7 +81,7 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
+            args '--mod', "$mod_name".toString(), '--all', '--output', file('src/generated/resources/')
 
             mods {
                 examplemod {
